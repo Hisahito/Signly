@@ -1618,7 +1618,7 @@ hr.hr-heading {
 	
 	/* General Styles */
 	.container {
-		max-width: 1140px;
+		max-width: 1426px;
 	}
 	/* end of general styles */
 	
@@ -1656,6 +1656,13 @@ hr.hr-heading {
 
 	.header .header-decoration {
 		height: 260px;
+	}
+
+	.typewrite{
+		font-size: 3.5rem;
+		line-height: 4.375rem;
+		color: white;
+		text-decoration: none;
 	}
 	/* end of header */
 
