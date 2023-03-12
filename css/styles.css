@@ -47,7 +47,7 @@ body, p {
 }
 
 h1 {
-	color: #32373e;
+	color: #FFF;
 	font-weight: 600;
 	font-size: 2.5rem;
 	line-height: 3.25rem;
@@ -116,12 +116,12 @@ h6 {
 	margin-bottom: 0.5rem;
 }
 
-a {
-	color: #5d636b;
-	text-decoration: underline;
+.h1-large a{
+	color: #FFF;
+	text-decoration: none;
 }
 
-a:hover {
+a {
 	color: #5d636b;
 	text-decoration: underline;
 }
@@ -485,7 +485,7 @@ hr.hr-heading {
 	position: relative;
 	overflow: hidden;
 	padding-top: 7rem;
-	padding-bottom: 7rem;
+	padding-bottom: 0rem;
 	background-color: #1C4753;
 	text-align: center;
 }
@@ -539,6 +539,14 @@ hr.hr-heading {
 	left: 0;
 	width: 129%;
 	height: 60px;
+}
+.typewrite{
+	font-size: 2.5rem;
+	line-height: 4.375rem;
+	height: 200px;
+	display: flow-root;
+	color: white;
+	text-decoration: none;
 }
 
 
@@ -1288,12 +1296,38 @@ hr.hr-heading {
 /*************************/
 /*     Media Queries     */
 /*************************/	
+/* Min-width 380px */
+@media (max-width: 380px) {
+
+	.typewrite{
+		font-size: 2.5rem;
+		line-height: 4.375rem;
+		height: 200px;
+		display: flow-root;
+		color: white;
+		text-decoration: none;
+	}
+
+	.row>* {
+		padding: 0px;
+	}
+}
+
 /* Min-width 768px */
 @media (min-width: 768px) {
 
 	/* Header */
 	.header .header-decoration {
 		height: 100px;
+	}
+
+	.typewrite{
+		font-size: 2.5rem;
+		line-height: 4.375rem;
+		height: 200px;
+		display: flow-root;
+		color: white;
+		text-decoration: none;
 	}
 	/* end of header */
 
@@ -1448,8 +1482,26 @@ hr.hr-heading {
 		margin-left: 0;
 	}
 
+	.header .image-container {
+		transform: rotate(-3deg);
+
+	}
+
 	.header .header-decoration {
 		height: 160px;
+	}
+
+	.letters{
+		top: -100px;
+	}
+
+	.typewrite{
+		font-size: 2.5rem;
+		line-height: 4.375rem;
+		height: 200px;
+		display: flow-root;
+		color: white;
+		text-decoration: none;
 	}
 	/* end of header */
 
@@ -1650,17 +1702,19 @@ hr.hr-heading {
 	.header .image-container {
 		position: absolute;
 		z-index: 1;
-		top: -90px;
+		top: -48px;
 		width: 700px;
 	}
 
 	.header .header-decoration {
-		height: 260px;
+		height: 660px;
 	}
 
 	.typewrite{
 		font-size: 3.5rem;
 		line-height: 4.375rem;
+		height: 200px;
+		display: flow-root;
 		color: white;
 		text-decoration: none;
 	}
