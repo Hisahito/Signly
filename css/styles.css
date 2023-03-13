@@ -1660,6 +1660,20 @@ hr.hr-heading {
 		vertical-align: top;
 	}
 
+	.footer .footer-col.fourth {
+		display: inline-block;
+		width: 320px;
+		margin-right: 1.75rem;
+		vertical-align: top;
+	}
+
+	.footer .footer-col.fived {
+		display: inline-block;
+		width: 320px;
+		margin-right: 1.75rem;
+		vertical-align: top;
+	}
+
 	.footer .footer-col.third .fa-stack {
 		margin-right: 0;
 		margin-left: 0.375rem;
@@ -1823,15 +1837,23 @@ hr.hr-heading {
 	/* Footer */
 	.footer .footer-col.first {
 		width: 352px;
-		margin-right: 6rem;
+		margin-right: 0rem;
 	}
 	
 	.footer .footer-col.second {
-		margin-right: 6.5rem;
+		margin-right: -8rem;
 	}
 	
 	.footer .footer-col.third {
 		text-align: right;
+	}
+
+	.footer .footer-col.fourth {
+		margin-right: -9rem;
+	}
+
+	.footer .footer-col.fived {
+		margin-right: 0rem;
 	}
 	/* end of footer */
 
