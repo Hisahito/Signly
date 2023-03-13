@@ -608,7 +608,7 @@ hr.hr-heading {
 /********************/
 .tabs {
 	padding-top: 8rem;
-	padding-bottom: 8.5rem;
+	padding-bottom: 0rem;
 }
 
 .tabs .section-title {
@@ -1702,7 +1702,7 @@ hr.hr-heading {
 	
 	/* General Styles */
 	.container {
-		max-width: 1426px;
+		max-width: 100%;
 	}
 	/* end of general styles */
 	
@@ -1823,6 +1823,11 @@ hr.hr-heading {
 		margin-right: 3rem;
 		margin-left: 3rem;
 	}
+
+	.tarjetas {
+		display: flex;
+		justify-content: center;
+	}
 	/* end of pricing */
 
 
@@ -1846,6 +1851,8 @@ hr.hr-heading {
 	
 	.footer .footer-col.third {
 		text-align: right;
+		position: relative;
+		right: -400px;
 	}
 
 	.footer .footer-col.fourth {
