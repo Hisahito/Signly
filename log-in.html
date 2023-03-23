@@ -105,7 +105,7 @@
                             <p class="mb-4">You don't have a password? Then please <a class="blue" href="sign-up.html">Sign Up</a></p>
 
                             <!-- Log In Form -->
-                            <form>
+                            <form id="login-form">
                                 <div class="mb-4 form-floating">
                                     <input type="email" class="form-control" id="floatingInput1" placeholder="name@example.com">
                                     <label for="floatingInput1">Email</label>
@@ -244,5 +244,38 @@
         <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
         <script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
         <script src="js/scripts.js"></script> <!-- Custom scripts -->
+        <script>
+            document.getElementById('login-form').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const email = document.getElementById('floatingInput1').value;
+            const password = document.getElementById('floatingInput2').value;
+
+            try {
+            const response = await fetch('/api/auth/login', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                email,
+                password,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (response.status === 200) {
+                localStorage.setItem('token', data.token);
+                alert('Inicio de sesión exitoso');
+                // Redirecciona al usuario al panel de control u otra página deseada
+            } else {
+                alert('Error al iniciar sesión: ' + data.message);
+            }
+            } catch (error) {
+            console.error('Error al realizar la solicitud:', error);
+            }
+        });
+        </script>
     </body>
 </html>

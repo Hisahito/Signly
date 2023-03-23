@@ -105,7 +105,7 @@
                             <p class="mb-4">Fill out the form to sign up. Already signed up? Then just <a class="blue" href="log-in.html">Log In</a></p>
 
                             <!-- Log In Form -->
-                            <form>
+                            <form id="register-form">
                                 <div class="mb-4 form-floating">
                                     <input type="email" class="form-control" id="floatingInput1" placeholder="name@example.com">
                                     <label for="floatingInput1">Email</label>
@@ -248,5 +248,39 @@
         <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
         <script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
         <script src="js/scripts.js"></script> <!-- Custom scripts -->
+        <script>
+            document.getElementById('register-form').addEventListener('submit', async function (event) {
+                event.preventDefault();
+
+                const email = document.getElementById('floatingInput1').value;
+                const name = document.getElementById('floatingInput2').value;
+                const password = document.getElementById('floatingInput3').value;
+
+                try {
+                const response = await fetch('/api/auth/register', {
+                    method: 'POST',
+                    headers: {
+                    'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                    email,
+                    name,
+                    password,
+                    }),
+                });
+
+                const data = await response.json();
+
+                if (response.status === 201) {
+                    alert('Usuario registrado exitosamente');
+                    // Redirecciona al usuario a la página de inicio de sesión o al panel de control
+                } else {
+                    alert('Error al registrar el usuario: ' + data.message);
+                }
+                } catch (error) {
+                console.error('Error al realizar la solicitud:', error);
+                }
+            });
+        </script>
     </body>
 </html>
