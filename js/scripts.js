@@ -280,7 +280,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
 	  // Recupera el token desde la URL
 	  const urlParams = new URLSearchParams(window.location.search);
-	  const token = urlParams.get("token");
+	  const token = new URLSearchParams(window.location.search).get("token");
   
 	  // Realiza una solicitud POST al backend para restablecer la contraseña
 	  try {
