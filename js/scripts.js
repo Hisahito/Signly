@@ -221,3 +221,89 @@ window.onload = function() {
 	css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid white}";
 	document.body.appendChild(css);
 };
+
+document.addEventListener("DOMContentLoaded", () => {
+// Selecciona el formulario de solicitud de restablecimiento de contraseña
+const resetPasswordRequestForm = document.getElementById("reset-password-request-form");
+
+// Agrega un event listener al formulario para manejar el evento de envío
+resetPasswordRequestForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  // Obtén el valor del campo de correo electrónico
+  const emailField = document.getElementById("floatingInput1");
+  const email = emailField.value;
+
+  // Realiza una solicitud POST al backend para solicitar el restablecimiento de contraseña
+  try {
+    const response = await fetch("http://localhost:3000/auth/reset-password-request", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    });
+
+    if (response.ok) {
+      // Muestra un mensaje de éxito si la solicitud se envió correctamente
+      alert("Se ha enviado un correo electrónico con instrucciones para restablecer su contraseña.");
+    } else {
+      // Muestra un mensaje de error si hubo un problema
+      alert("Hubo un error al solicitar el restablecimiento de contraseña. Por favor, inténtalo de nuevo.");
+    }
+  } catch (error) {
+    console.error(error);
+    alert("Hubo un error al solicitar el restablecimiento de contraseña. Por favor, inténtalo de nuevo.");
+  }
+})
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+	// Selecciona el formulario de restablecimiento de contraseña
+	const resetPasswordForm = document.getElementById("reset-password-form");
+  
+	// Agrega un event listener al formulario para manejar el evento de envío
+	resetPasswordForm.addEventListener("submit", async (event) => {
+	  event.preventDefault();
+  
+	  // Obtén el valor de los campos de nueva contraseña y confirmación de contraseña
+	  const newPasswordField = document.getElementById("new-password");
+	  const confirmPasswordField = document.getElementById("confirm-password");
+	  const newPassword = newPasswordField.value;
+	  const confirmPassword = confirmPasswordField.value;
+  
+	  // Verifica que las contraseñas coincidan
+	  if (newPassword !== confirmPassword) {
+		alert("Las contraseñas no coinciden. Por favor, verifica e inténtalo de nuevo.");
+		return;
+	  }
+  
+	  // Recupera el token desde la URL
+	  const urlParams = new URLSearchParams(window.location.search);
+	  const token = urlParams.get("token");
+  
+	  // Realiza una solicitud POST al backend para restablecer la contraseña
+	  try {
+		const response = await fetch(`http://localhost:3000/auth/reset-password/${token}`, {
+		  method: "POST",
+		  headers: {
+			"Content-Type": "application/json",
+		  },
+		  body: JSON.stringify({ password: newPassword }),
+		});
+  
+		if (response.ok) {
+		  // Muestra un mensaje de éxito si la contraseña se restableció correctamente
+		  alert("Tu contraseña ha sido restablecida con éxito.");
+		  window.location.href = "/login"; // Redirige al usuario a la página de inicio de sesión
+		} else {
+		  // Muestra un mensaje de error si hubo un problema
+		  alert("Hubo un error al restablecer tu contraseña. Por favor, inténtalo de nuevo.");
+		}
+	  } catch (error) {
+		console.error(error);
+		alert("Hubo un error al restablecer tu contraseña. Por favor, inténtalo de nuevo.");
+	  }
+	})
+});
+  
