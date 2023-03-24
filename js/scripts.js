@@ -236,7 +236,7 @@ resetPasswordRequestForm.addEventListener("submit", async (event) => {
 
   // Realiza una solicitud POST al backend para solicitar el restablecimiento de contraseña
   try {
-    const response = await fetch("http://localhost:3000/auth/reset-password-request", {
+    const response = await fetch("http://localhost:3000/api/auth/reset-password-request", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -284,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
 	  // Realiza una solicitud POST al backend para restablecer la contraseña
 	  try {
-		const response = await fetch(`http://localhost:3000/auth/reset-password/${token}`, {
+		const response = await fetch(`http://localhost:3000/api/auth/reset-password/${token}`, {
 		  method: "POST",
 		  headers: {
 			"Content-Type": "application/json",
