@@ -291,6 +291,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		  },
 		  body: JSON.stringify({ password: newPassword }),
 		});
+		console.log(response);
   
 		if (response.ok) {
 		  // Muestra un mensaje de éxito si la contraseña se restableció correctamente
