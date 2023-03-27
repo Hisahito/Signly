@@ -296,7 +296,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		if (response.ok) {
 		  // Muestra un mensaje de éxito si la contraseña se restableció correctamente
 		  alert("Tu contraseña ha sido restablecida con éxito.");
-		  window.location.href = "Signly/log-in.html"; // Redirige al usuario a la página de inicio de sesión
+		  window.location.href = "/log-in.html"; // Redirige al usuario a la página de inicio de sesión
 		} else {
 		  // Muestra un mensaje de error si hubo un problema
 		  alert("Hubo un error al restablecer tu contraseña. Por favor, inténtalo de nuevo.");
