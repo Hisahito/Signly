@@ -249,6 +249,14 @@
         <script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
         <script src="js/scripts.js"></script> <!-- Custom scripts -->
         <script>
+
+            const getBrowserLanguage = () => {
+            const language = navigator.language || navigator.userLanguage;
+            return language.substr(0, 2);
+            };
+
+            const userLanguage = getBrowserLanguage(); // Devuelve "en" o "es" u otro código de idioma de dos letras
+
             document.getElementById('register-form').addEventListener('submit', async function (event) {
                 event.preventDefault();
 
@@ -266,6 +274,7 @@
                     email,
                     name,
                     password,
+                    lang: userLanguage || "es",
                     }),
                 });
 
